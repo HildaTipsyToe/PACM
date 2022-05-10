@@ -14,12 +14,14 @@ namespace PACM.BL
         }
         public Product(int productId)
         {
-            productId = productId;
+            productId = ProductId;
         }
         public decimal? CurrentPrice { get; set; }
         public string ProductDescription { get; set; }
         public int ProductId { get; private set; }
         public string ProductName { get; set; }
+
+        public override string ToString() => ProductName;
 
         ///<summary>
         /// Validates the product data.

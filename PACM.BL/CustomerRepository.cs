@@ -8,6 +8,16 @@ namespace PACM.BL
 {
     public class CustomerRepository
     {
+        public CustomerRepository()
+        {
+            addressRepository = new AddressRepository();
+        }
+        private AddressRepository addressRepository { get; set; }
+        /// <summary>
+        /// Retrieve one customer.
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <returns></returns>
         public Customer Retrieve(int customerId)
         {
             //Create the instance of the Customer class
@@ -20,9 +30,10 @@ namespace PACM.BL
             //a populated customer
             if ( customerId == 1)
             {
-                customer.EmailAdr = "fbaggins@hobbition.me";
+                customer.EmailAdr = "fbaggins@hobbiton.me";
                 customer.FirstName = "Frodo";
                 customer.LastName = "Baggins";
+                customer.AddressList = addressRepository.RetrieveByCustomerId(customerId).ToList();
             }
             return customer;
         }

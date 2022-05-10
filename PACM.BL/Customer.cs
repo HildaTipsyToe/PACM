@@ -2,15 +2,18 @@
 {
     public class Customer
     {
-        public Customer()
+        public Customer(): this(0)
         {
 
         }
         public Customer(int customerId)
         {
             CustomerID = customerId;
+            AddressList = new List<Address>();
         }
+        public List<Address> AddressList { get; set; }
         public int CustomerID { get; private set; }
+        public int CustomerType { get; private set; }
         public string EmailAdr { get; set; }
         public string FullName
         {
@@ -36,6 +39,8 @@
             get { return _lastName; }
             set { _lastName = value; }
         }
+        public override string ToString() => FullName;
+        
 
         ///<summary> 
         /// Validates the customer data.
