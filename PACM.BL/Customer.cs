@@ -2,6 +2,14 @@
 {
     public class Customer
     {
+        public Customer()
+        {
+
+        }
+        public Customer(int customerId)
+        {
+            CustomerID = customerId;
+        }
         public int CustomerID { get; private set; }
         public string EmailAdr { get; set; }
         public string FullName
@@ -29,39 +37,8 @@
             set { _lastName = value; }
         }
 
-        ///<Summary>
-        ///Retrieve all customers.
-        ///</summary>
-        ///<param name="CustomeriD"></param>
-        ///<Returns></Returns>
-        public List<Customer> Retrieve()
-        {
-            //code that retrueves al of the customers.
-            return new List<Customer>();
-        }
-
-        ///<Summary>
-        ///Retrieve one customer.
-        ///</summary>
-        ///<Returns></Returns>
-        public Customer Retrieve(int customerId)
-        {
-            //code that retrueves the defined customer
-            return new Customer();
-        }
-
-        ///<Summary>
-        ///Saves the current customer
-        ///</Summary>
-        ///<Returns></Returns>
-        public bool Save()
-        {
-            //Code that saves the defined customer
-            return true;
-        }
-        
-        ///<Summary>
-        ///Validates the customer data.
+        ///<summary> 
+        /// Validates the customer data.
         ///</summary>
         ///<Returns></Returns>
         public bool Validate()
