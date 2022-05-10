@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PACM.BL
 {
-    public class Product
+    public class Product : EntitBase
     {
         public Product()
         {
