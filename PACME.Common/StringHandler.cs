@@ -12,11 +12,14 @@
                 {
                     if (char.IsUpper(letter))
                     {
+                        //Trim any spaces already there
+                        result = result.Trim();
                         result += " ";
                     }
-                    else result += letter;
+                    result += letter;
                 }
             }
+            result = result.Trim();
             return result;
         }
     }
