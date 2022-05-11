@@ -26,10 +26,33 @@ namespace PACM.BL
             }
             return product;
         }
+        /// <summary>
+        /// Saves the passed in product
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns></returns>
         public bool Save (Product product)
         {
-            //Code that saves the passed in product
-            return true;
+            var success = true;
+            if (product.HasChanges)
+            {
+                if (product.IsValid)
+                {
+                    if (product.IsNew)
+                    {
+                        // Call an Insert stored procedure
+                    }
+                    else
+                    {
+                        // Call an update stored procedure
+                    }
+                }
+                else
+                {
+                    success = false;
+                }
+            }
+            return success;
         }
     }
 }
