@@ -1,6 +1,8 @@
-﻿namespace PACM.BL
+﻿using PACME.Common;
+
+namespace PACM.BL
 {
-    public class Customer
+    public class Customer : EntitBase, ILoggable
     {
         public Customer(): this(0)
         {
@@ -40,13 +42,15 @@
             set { _lastName = value; }
         }
         public override string ToString() => FullName;
+
+        public string Log() => $"{CustomerID}: {FullName} Email: {EmailAdr} Status: {entityState.ToString()}";
         
 
         ///<summary> 
         /// Validates the customer data.
         ///</summary>
         ///<Returns></Returns>
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
             if (string.IsNullOrWhiteSpace(LastName)) isValid = false;

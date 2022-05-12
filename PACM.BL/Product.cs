@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PACME.Common;
 
 namespace PACM.BL
 {
-    public class Product : EntitBase
+    public class Product : EntitBase, ILoggable
     {
         public Product()
         {
@@ -23,11 +24,15 @@ namespace PACM.BL
 
         public string ProductName
         {
-            get { return _productName; }
+            get {
+                //return StringHandler.InsertSpaces(_productName);
+                return _productName.InsertSpaces();
+                }
             set { _productName = value; }
         }
 
         public override string ToString() => ProductName;
+        public string Log() => $"{ProductId}: {ProductName} Detail: {ProductDescription} Status: {entityState.ToString()}";
 
         ///<summary>
         /// Validates the product data.
